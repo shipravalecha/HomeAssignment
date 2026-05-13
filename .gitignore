@@ -1,0 +1,32 @@
+# Xcode build output
+build/
+DerivedData/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# Xcode user-specific settings
+xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# CocoaPods (not used here, but just in case)
+Pods/
+Podfile.lock
+
+# macOS
+.DS_Store
+*.DS_Store
+
+# Secrets — never commit API keys
+# Info.plist is included but make sure OPENAI_API_KEY is not hardcoded
