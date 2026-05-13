@@ -1,0 +1,746 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01551730AFAD91DD239D5C6E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC2A738C152FC4736FD88F /* Enums.swift */; };
+		066D7D126575A1CDDD136E1E /* IngredientNormalizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329B9B46A8834F239ADE160A /* IngredientNormalizerService.swift */; };
+		096DF3CFB54B523B378C189A /* ChefNovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAC48566A919386738A8B2 /* ChefNovaApp.swift */; };
+		0F260AC47D330FAD806C7BCB /* RecipeEngineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92303128932FB4333E04BBC3 /* RecipeEngineService.swift */; };
+		0F8BA7F9A1523A55D85BF1D0 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF688DA396BE2C341E9791 /* Errors.swift */; };
+		11E99E9F77502D778779DD49 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA33423C6959231B9878C4 /* WelcomeView.swift */; };
+		17AD9E4328998AC0429BA304 /* IngredientInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B11C84BD8869DBB34F977 /* IngredientInputViewModel.swift */; };
+		1A5F50265BB4730F860AF7DD /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4084686CF0E3FF80D839E5B6 /* SwiftUI.framework */; };
+		2282A4887E8770A6AE7595E6 /* SwiftCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 0BD84E4D7C1769B006ADC0BD /* SwiftCheck */; };
+		2F3D39FBB82BD5C7F5AD4668 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F4EA1A8F4442A0A69C9F0B /* BarcodeScannerView.swift */; };
+		30729B9DE87EA4F29F1EA86F /* ChefNovaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564EE1996BE89FBDF306EC39 /* ChefNovaTests.swift */; };
+		428AD2B9DF40F811CFFBF0E1 /* IngredientNormalizerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8239AFF76FCF56146076755 /* IngredientNormalizerServiceTests.swift */; };
+		455715DD18D592AFF06E5B6B /* PreferencePersistenceServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4443362AEA37366BA4D1B1 /* PreferencePersistenceServiceTests.swift */; };
+		483A11912D78D6D7B45C9CC5 /* PreferenceViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FD2681677BAEC8F2604FBD /* PreferenceViewModelTests.swift */; };
+		4A303A4223CDEBDC1B695B6A /* IngredientInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FEA0BE2DE87E70B26C94DED /* IngredientInputView.swift */; };
+		4E3A31D3FB8DBFA7DCA09643 /* PreferenceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B80B3B5CC5486C43103543 /* PreferenceProfile.swift */; };
+		4EC8F9B2C4FB7A815F7FE19E /* PreferenceSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E71CACAC14B2B00C2C949C /* PreferenceSelectionView.swift */; };
+		5132C5E304646C4C756F4BE8 /* ChefNovaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BBCECBB0234B3487C2502 /* ChefNovaUITests.swift */; };
+		604AC61E53D91F4439D8D019 /* SwiftData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAE1C807915F103FEE812E7 /* SwiftData.framework */; };
+		67A1C68862C8A6CF834FC243 /* RecipeResultsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 687CE024E3A83286C0648B0E /* RecipeResultsViewModelTests.swift */; };
+		72D1638CE807AD2F7ECF4484 /* RecipeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DD609DAAD5939C9CD674F4 /* RecipeDetailView.swift */; };
+		780C6D012B9BCCFDF8916A99 /* RecipeResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5976FFD4F18AF5D508AEAAC /* RecipeResultsView.swift */; };
+		7A25D19F7088E8303BB1CD82 /* RecipeEngineServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48072CFEC6553FE75130A2FB /* RecipeEngineServiceTests.swift */; };
+		7C1BE6D14E529A2872F29F99 /* BarcodeProductLookupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA91613E3C2DB74A70492227 /* BarcodeProductLookupService.swift */; };
+		7FE6002764CF39D83618A457 /* PantryStaplesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7BD713D15F01060F8736AB /* PantryStaplesService.swift */; };
+		87A2639FC8FC5990B0ECA37B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037EF1BA754A667094FA7D6C /* ContentView.swift */; };
+		8E2921D5274A75B64A1FB159 /* PantryStaples.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FB672E4429416DDBF24CB43 /* PantryStaples.json */; };
+		8E3E6711894C9571AC5A347D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C80B4A6E6B76FD92573122D0 /* Assets.xcassets */; };
+		94B4490F4FF9A0C81763ED9F /* IngredientInputViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287BAE5CD7163FE341ECFA83 /* IngredientInputViewModelTests.swift */; };
+		9D00D1A3B83FF4D5C6F4D510 /* RecipeDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20C2D03C151D00AD852EFD6 /* RecipeDetailViewModelTests.swift */; };
+		9EA16FB4F75A47C90DA0F9F1 /* ChefNovaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADD0889355F900B09A98308 /* ChefNovaUITestsLaunchTests.swift */; };
+		B0C67A41F2C88B6D2C293D1E /* RecipeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E4476C6AAFC0E89C5477FD /* RecipeResultsViewModel.swift */; };
+		B44EC0809AE2EB08DC574DE0 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 457FDA4871A3990C0656F568 /* RecipeDetailViewModel.swift */; };
+		B80352943C08F57468F2E342 /* PreferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796EBA64CE416B35BB6CB4A7 /* PreferenceViewModel.swift */; };
+		C714F62A5393CACC6AEB38B4 /* RecipeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8114E1F67261B336BF70C /* RecipeModels.swift */; };
+		DFF3920F7E962740B8154E09 /* PreferencePersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85035C9777A760CB8FEA6F1 /* PreferencePersistenceService.swift */; };
+		E7DFF029C18040750445374A /* MockRecipeEngineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067EB91CB3C16F3AE20F19C7 /* MockRecipeEngineService.swift */; };
+		F3FF426D586C253B48ABD950 /* PantryStaplesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EF485EA7DA2077E6254BD7 /* PantryStaplesServiceTests.swift */; };
+		F69FAC99CB1AFD4751941E00 /* SynonymDictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = 8B23FBDA5002C4DCD8D7512B /* SynonymDictionary.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EA4C5B9F1F6ED42BF01930FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D1BD9DAD7590DEB6FAD646 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6604B87B55A3C7DD646EEFF;
+			remoteInfo = ChefNova;
+		};
+		FB0058460528B96F15AC7A7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2D1BD9DAD7590DEB6FAD646 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E6604B87B55A3C7DD646EEFF;
+			remoteInfo = ChefNova;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		037EF1BA754A667094FA7D6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		067EB91CB3C16F3AE20F19C7 /* MockRecipeEngineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipeEngineService.swift; sourceTree = "<group>"; };
+		10EF688DA396BE2C341E9791 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		287BAE5CD7163FE341ECFA83 /* IngredientInputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInputViewModelTests.swift; sourceTree = "<group>"; };
+		28E71CACAC14B2B00C2C949C /* PreferenceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSelectionView.swift; sourceTree = "<group>"; };
+		329B9B46A8834F239ADE160A /* IngredientNormalizerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientNormalizerService.swift; sourceTree = "<group>"; };
+		34A6C68AF0D4C852367220C3 /* ChefNovaTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ChefNovaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CCAC48566A919386738A8B2 /* ChefNovaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefNovaApp.swift; sourceTree = "<group>"; };
+		3D158028F324AB99F4313846 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3FB672E4429416DDBF24CB43 /* PantryStaples.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PantryStaples.json; sourceTree = "<group>"; };
+		4084686CF0E3FF80D839E5B6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		40FD2681677BAEC8F2604FBD /* PreferenceViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewModelTests.swift; sourceTree = "<group>"; };
+		457FDA4871A3990C0656F568 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
+		48072CFEC6553FE75130A2FB /* RecipeEngineServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEngineServiceTests.swift; sourceTree = "<group>"; };
+		564EE1996BE89FBDF306EC39 /* ChefNovaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefNovaTests.swift; sourceTree = "<group>"; };
+		57AC2A738C152FC4736FD88F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		687CE024E3A83286C0648B0E /* RecipeResultsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResultsViewModelTests.swift; sourceTree = "<group>"; };
+		69DD609DAAD5939C9CD674F4 /* RecipeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailView.swift; sourceTree = "<group>"; };
+		6ADD0889355F900B09A98308 /* ChefNovaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefNovaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		796EBA64CE416B35BB6CB4A7 /* PreferenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceViewModel.swift; sourceTree = "<group>"; };
+		7E7BD713D15F01060F8736AB /* PantryStaplesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryStaplesService.swift; sourceTree = "<group>"; };
+		81B80B3B5CC5486C43103543 /* PreferenceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceProfile.swift; sourceTree = "<group>"; };
+		8B23FBDA5002C4DCD8D7512B /* SynonymDictionary.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SynonymDictionary.json; sourceTree = "<group>"; };
+		8FEA0BE2DE87E70B26C94DED /* IngredientInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInputView.swift; sourceTree = "<group>"; };
+		92303128932FB4333E04BBC3 /* RecipeEngineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEngineService.swift; sourceTree = "<group>"; };
+		A5E4476C6AAFC0E89C5477FD /* RecipeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResultsViewModel.swift; sourceTree = "<group>"; };
+		A6F4EA1A8F4442A0A69C9F0B /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
+		AB4443362AEA37366BA4D1B1 /* PreferencePersistenceServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePersistenceServiceTests.swift; sourceTree = "<group>"; };
+		B5976FFD4F18AF5D508AEAAC /* RecipeResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResultsView.swift; sourceTree = "<group>"; };
+		BA91613E3C2DB74A70492227 /* BarcodeProductLookupService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeProductLookupService.swift; sourceTree = "<group>"; };
+		C44453E44B7E9D81F2CC92D5 /* ChefNovaUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = ChefNovaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C80B4A6E6B76FD92573122D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C90B7C27A50B021CE7E4A5E8 /* ChefNova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChefNova.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAEA33423C6959231B9878C4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		D14B11C84BD8869DBB34F977 /* IngredientInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInputViewModel.swift; sourceTree = "<group>"; };
+		D86BBCECBB0234B3487C2502 /* ChefNovaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefNovaUITests.swift; sourceTree = "<group>"; };
+		E5EF485EA7DA2077E6254BD7 /* PantryStaplesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryStaplesServiceTests.swift; sourceTree = "<group>"; };
+		E8239AFF76FCF56146076755 /* IngredientNormalizerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientNormalizerServiceTests.swift; sourceTree = "<group>"; };
+		E85035C9777A760CB8FEA6F1 /* PreferencePersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencePersistenceService.swift; sourceTree = "<group>"; };
+		EEAE1C807915F103FEE812E7 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
+		F20C2D03C151D00AD852EFD6 /* RecipeDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModelTests.swift; sourceTree = "<group>"; };
+		F6C8114E1F67261B336BF70C /* RecipeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModels.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3590A8F5982B254F2F6A8EFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2282A4887E8770A6AE7595E6 /* SwiftCheck in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFC7C0706050046CBE483FB4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A5F50265BB4730F860AF7DD /* SwiftUI.framework in Frameworks */,
+				604AC61E53D91F4439D8D019 /* SwiftData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3866D51E4F34B3A3070A3C01 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C90B7C27A50B021CE7E4A5E8 /* ChefNova.app */,
+				34A6C68AF0D4C852367220C3 /* ChefNovaTests.xctest */,
+				C44453E44B7E9D81F2CC92D5 /* ChefNovaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DEC4871F0A64A250F29DB50 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D14B11C84BD8869DBB34F977 /* IngredientInputViewModel.swift */,
+				796EBA64CE416B35BB6CB4A7 /* PreferenceViewModel.swift */,
+				457FDA4871A3990C0656F568 /* RecipeDetailViewModel.swift */,
+				A5E4476C6AAFC0E89C5477FD /* RecipeResultsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		82BA81CC01E07BC3D21E99D0 /* ChefNova */ = {
+			isa = PBXGroup;
+			children = (
+				C80B4A6E6B76FD92573122D0 /* Assets.xcassets */,
+				3CCAC48566A919386738A8B2 /* ChefNovaApp.swift */,
+				037EF1BA754A667094FA7D6C /* ContentView.swift */,
+				3D158028F324AB99F4313846 /* Info.plist */,
+				FE9D1D9C7251A56B69B9B34B /* Models */,
+				A7F24DC2220955F38EC5730B /* Resources */,
+				85B835F32CBA215786674C30 /* Services */,
+				3DEC4871F0A64A250F29DB50 /* ViewModels */,
+				B5542E6266D47C6F6E187359 /* Views */,
+			);
+			path = ChefNova;
+			sourceTree = "<group>";
+		};
+		8564F5A3B048A47F95B8EE9B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEAE1C807915F103FEE812E7 /* SwiftData.framework */,
+				4084686CF0E3FF80D839E5B6 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		85B835F32CBA215786674C30 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BA91613E3C2DB74A70492227 /* BarcodeProductLookupService.swift */,
+				329B9B46A8834F239ADE160A /* IngredientNormalizerService.swift */,
+				067EB91CB3C16F3AE20F19C7 /* MockRecipeEngineService.swift */,
+				7E7BD713D15F01060F8736AB /* PantryStaplesService.swift */,
+				E85035C9777A760CB8FEA6F1 /* PreferencePersistenceService.swift */,
+				92303128932FB4333E04BBC3 /* RecipeEngineService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A5ABEF6EC3FFE895D94F6342 = {
+			isa = PBXGroup;
+			children = (
+				82BA81CC01E07BC3D21E99D0 /* ChefNova */,
+				D97C2EF094D65348DE5A46E7 /* ChefNovaTests */,
+				D61658E03D84E544A8DE2DB7 /* ChefNovaUITests */,
+				8564F5A3B048A47F95B8EE9B /* Frameworks */,
+				3866D51E4F34B3A3070A3C01 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7F24DC2220955F38EC5730B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3FB672E4429416DDBF24CB43 /* PantryStaples.json */,
+				8B23FBDA5002C4DCD8D7512B /* SynonymDictionary.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B5542E6266D47C6F6E187359 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A6F4EA1A8F4442A0A69C9F0B /* BarcodeScannerView.swift */,
+				8FEA0BE2DE87E70B26C94DED /* IngredientInputView.swift */,
+				28E71CACAC14B2B00C2C949C /* PreferenceSelectionView.swift */,
+				69DD609DAAD5939C9CD674F4 /* RecipeDetailView.swift */,
+				B5976FFD4F18AF5D508AEAAC /* RecipeResultsView.swift */,
+				CAEA33423C6959231B9878C4 /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D61658E03D84E544A8DE2DB7 /* ChefNovaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D86BBCECBB0234B3487C2502 /* ChefNovaUITests.swift */,
+				6ADD0889355F900B09A98308 /* ChefNovaUITestsLaunchTests.swift */,
+			);
+			path = ChefNovaUITests;
+			sourceTree = "<group>";
+		};
+		D97C2EF094D65348DE5A46E7 /* ChefNovaTests */ = {
+			isa = PBXGroup;
+			children = (
+				564EE1996BE89FBDF306EC39 /* ChefNovaTests.swift */,
+				287BAE5CD7163FE341ECFA83 /* IngredientInputViewModelTests.swift */,
+				E8239AFF76FCF56146076755 /* IngredientNormalizerServiceTests.swift */,
+				E5EF485EA7DA2077E6254BD7 /* PantryStaplesServiceTests.swift */,
+				AB4443362AEA37366BA4D1B1 /* PreferencePersistenceServiceTests.swift */,
+				40FD2681677BAEC8F2604FBD /* PreferenceViewModelTests.swift */,
+				F20C2D03C151D00AD852EFD6 /* RecipeDetailViewModelTests.swift */,
+				48072CFEC6553FE75130A2FB /* RecipeEngineServiceTests.swift */,
+				687CE024E3A83286C0648B0E /* RecipeResultsViewModelTests.swift */,
+			);
+			path = ChefNovaTests;
+			sourceTree = "<group>";
+		};
+		FE9D1D9C7251A56B69B9B34B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				57AC2A738C152FC4736FD88F /* Enums.swift */,
+				10EF688DA396BE2C341E9791 /* Errors.swift */,
+				81B80B3B5CC5486C43103543 /* PreferenceProfile.swift */,
+				F6C8114E1F67261B336BF70C /* RecipeModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		436A9FE3651146E3BE1EFD2C /* ChefNovaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9386B9C5F570F90BDDB1E479 /* Build configuration list for PBXNativeTarget "ChefNovaTests" */;
+			buildPhases = (
+				097D10577DFAE025C0948919 /* Sources */,
+				3590A8F5982B254F2F6A8EFB /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31FEEBEC2F9CF2478650751E /* PBXTargetDependency */,
+			);
+			name = ChefNovaTests;
+			packageProductDependencies = (
+				0BD84E4D7C1769B006ADC0BD /* SwiftCheck */,
+			);
+			productName = ChefNovaTests;
+			productReference = 34A6C68AF0D4C852367220C3 /* ChefNovaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AC5A33FBB410DBD5085CBBA2 /* ChefNovaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 932FF018CEA739B29540A505 /* Build configuration list for PBXNativeTarget "ChefNovaUITests" */;
+			buildPhases = (
+				702C4A338C26B6683EFBA73B /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B64F1B7824954DAADB5E902F /* PBXTargetDependency */,
+			);
+			name = ChefNovaUITests;
+			packageProductDependencies = (
+			);
+			productName = ChefNovaUITests;
+			productReference = C44453E44B7E9D81F2CC92D5 /* ChefNovaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		E6604B87B55A3C7DD646EEFF /* ChefNova */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08F60B5B32E971E87B1A9CFF /* Build configuration list for PBXNativeTarget "ChefNova" */;
+			buildPhases = (
+				D364B56879EC1FCB53FD50D0 /* Sources */,
+				121AB96C6E8E89C91C7BBDB5 /* Resources */,
+				FFC7C0706050046CBE483FB4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChefNova;
+			packageProductDependencies = (
+			);
+			productName = ChefNova;
+			productReference = C90B7C27A50B021CE7E4A5E8 /* ChefNova.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A2D1BD9DAD7590DEB6FAD646 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					AC5A33FBB410DBD5085CBBA2 = {
+						TestTargetID = E6604B87B55A3C7DD646EEFF;
+					};
+				};
+			};
+			buildConfigurationList = 3A3BD5BB697AC08669BD1E1F /* Build configuration list for PBXProject "ChefNova" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = A5ABEF6EC3FFE895D94F6342;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				E3B81E03D000A49F274B32AB /* XCRemoteSwiftPackageReference "SwiftCheck" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3866D51E4F34B3A3070A3C01 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E6604B87B55A3C7DD646EEFF /* ChefNova */,
+				436A9FE3651146E3BE1EFD2C /* ChefNovaTests */,
+				AC5A33FBB410DBD5085CBBA2 /* ChefNovaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		121AB96C6E8E89C91C7BBDB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E3E6711894C9571AC5A347D /* Assets.xcassets in Resources */,
+				8E2921D5274A75B64A1FB159 /* PantryStaples.json in Resources */,
+				F69FAC99CB1AFD4751941E00 /* SynonymDictionary.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		097D10577DFAE025C0948919 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30729B9DE87EA4F29F1EA86F /* ChefNovaTests.swift in Sources */,
+				94B4490F4FF9A0C81763ED9F /* IngredientInputViewModelTests.swift in Sources */,
+				428AD2B9DF40F811CFFBF0E1 /* IngredientNormalizerServiceTests.swift in Sources */,
+				F3FF426D586C253B48ABD950 /* PantryStaplesServiceTests.swift in Sources */,
+				455715DD18D592AFF06E5B6B /* PreferencePersistenceServiceTests.swift in Sources */,
+				483A11912D78D6D7B45C9CC5 /* PreferenceViewModelTests.swift in Sources */,
+				9D00D1A3B83FF4D5C6F4D510 /* RecipeDetailViewModelTests.swift in Sources */,
+				7A25D19F7088E8303BB1CD82 /* RecipeEngineServiceTests.swift in Sources */,
+				67A1C68862C8A6CF834FC243 /* RecipeResultsViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		702C4A338C26B6683EFBA73B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5132C5E304646C4C756F4BE8 /* ChefNovaUITests.swift in Sources */,
+				9EA16FB4F75A47C90DA0F9F1 /* ChefNovaUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D364B56879EC1FCB53FD50D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7C1BE6D14E529A2872F29F99 /* BarcodeProductLookupService.swift in Sources */,
+				2F3D39FBB82BD5C7F5AD4668 /* BarcodeScannerView.swift in Sources */,
+				096DF3CFB54B523B378C189A /* ChefNovaApp.swift in Sources */,
+				87A2639FC8FC5990B0ECA37B /* ContentView.swift in Sources */,
+				01551730AFAD91DD239D5C6E /* Enums.swift in Sources */,
+				0F8BA7F9A1523A55D85BF1D0 /* Errors.swift in Sources */,
+				4A303A4223CDEBDC1B695B6A /* IngredientInputView.swift in Sources */,
+				17AD9E4328998AC0429BA304 /* IngredientInputViewModel.swift in Sources */,
+				066D7D126575A1CDDD136E1E /* IngredientNormalizerService.swift in Sources */,
+				E7DFF029C18040750445374A /* MockRecipeEngineService.swift in Sources */,
+				7FE6002764CF39D83618A457 /* PantryStaplesService.swift in Sources */,
+				DFF3920F7E962740B8154E09 /* PreferencePersistenceService.swift in Sources */,
+				4E3A31D3FB8DBFA7DCA09643 /* PreferenceProfile.swift in Sources */,
+				4EC8F9B2C4FB7A815F7FE19E /* PreferenceSelectionView.swift in Sources */,
+				B80352943C08F57468F2E342 /* PreferenceViewModel.swift in Sources */,
+				72D1638CE807AD2F7ECF4484 /* RecipeDetailView.swift in Sources */,
+				B44EC0809AE2EB08DC574DE0 /* RecipeDetailViewModel.swift in Sources */,
+				0F260AC47D330FAD806C7BCB /* RecipeEngineService.swift in Sources */,
+				C714F62A5393CACC6AEB38B4 /* RecipeModels.swift in Sources */,
+				780C6D012B9BCCFDF8916A99 /* RecipeResultsView.swift in Sources */,
+				B0C67A41F2C88B6D2C293D1E /* RecipeResultsViewModel.swift in Sources */,
+				11E99E9F77502D778779DD49 /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31FEEBEC2F9CF2478650751E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6604B87B55A3C7DD646EEFF /* ChefNova */;
+			targetProxy = EA4C5B9F1F6ED42BF01930FE /* PBXContainerItemProxy */;
+		};
+		B64F1B7824954DAADB5E902F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E6604B87B55A3C7DD646EEFF /* ChefNova */;
+			targetProxy = FB0058460528B96F15AC7A7C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01D068EB2346C85E19D8F7F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chefnova.ChefNovaTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChefNova.app/ChefNova";
+			};
+			name = Debug;
+		};
+		2BD3613770D099D200CB9095 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VT4DLY4FM7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ChefNova/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chefnova.ChefNova;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9CC3784CC1EAE7BC7752106B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A280325BC82B2FEA0BBED681 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chefnova.ChefNovaUITests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ChefNova;
+			};
+			name = Debug;
+		};
+		A4CB5C4124F74D33E522A821 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chefnova.ChefNovaTests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChefNova.app/ChefNova";
+			};
+			name = Release;
+		};
+		AA06BE407D810B70E4B4BC33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chefnova.ChefNovaUITests;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ChefNova;
+			};
+			name = Release;
+		};
+		C8CD479540322AB7F26D76FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VT4DLY4FM7;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ChefNova/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.chefnova.ChefNova;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D1B39F231CB934B33978E41B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08F60B5B32E971E87B1A9CFF /* Build configuration list for PBXNativeTarget "ChefNova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BD3613770D099D200CB9095 /* Debug */,
+				C8CD479540322AB7F26D76FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3A3BD5BB697AC08669BD1E1F /* Build configuration list for PBXProject "ChefNova" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1B39F231CB934B33978E41B /* Debug */,
+				9CC3784CC1EAE7BC7752106B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		932FF018CEA739B29540A505 /* Build configuration list for PBXNativeTarget "ChefNovaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A280325BC82B2FEA0BBED681 /* Debug */,
+				AA06BE407D810B70E4B4BC33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9386B9C5F570F90BDDB1E479 /* Build configuration list for PBXNativeTarget "ChefNovaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01D068EB2346C85E19D8F7F8 /* Debug */,
+				A4CB5C4124F74D33E522A821 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3B81E03D000A49F274B32AB /* XCRemoteSwiftPackageReference "SwiftCheck" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/typelift/SwiftCheck";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BD84E4D7C1769B006ADC0BD /* SwiftCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3B81E03D000A49F274B32AB /* XCRemoteSwiftPackageReference "SwiftCheck" */;
+			productName = SwiftCheck;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A2D1BD9DAD7590DEB6FAD646 /* Project object */;
+}
