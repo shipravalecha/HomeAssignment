@@ -30,3 +30,8 @@ Podfile.lock
 
 # Secrets — never commit API keys
 # Info.plist is included but make sure OPENAI_API_KEY is not hardcoded
+
+# Xcode shared schemes — contain environment variables that may include secrets
+# Each developer sets OPENAI_API_KEY locally in their own scheme
+*.xcscheme
+xcshareddata/xcschemes/
