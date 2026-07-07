@@ -16,7 +16,6 @@ struct IngredientInputView: View {
     @State private var navigateToPreferences = false
     @State private var showScanner = false
     @State private var showFavourites = false
-    @Environment(\.editMode) private var editMode
     @FocusState private var isTextFieldFocused: Bool
 
     // MARK: - Init
@@ -34,7 +33,7 @@ struct IngredientInputView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // MARK: Input row
+                // MARK: Input row — tapping blank space here dismisses keyboard
                 HStack {
                     TextField("Enter an ingredient", text: $viewModel.rawInput)
                         .textFieldStyle(.roundedBorder)
@@ -61,6 +60,9 @@ struct IngredientInputView: View {
                         .accessibilityIdentifier("addIngredientButton")
                 }
                 .padding()
+                // Tapping anywhere on the input row area dismisses the keyboard
+                .contentShape(Rectangle())
+                .onTapGesture { isTextFieldFocused = false }
 
                 // MARK: Barcode lookup status
                 if viewModel.isLookingUpBarcode {
@@ -96,6 +98,8 @@ struct IngredientInputView: View {
                 }
 
                 // MARK: Ingredient list
+                // scrollDismissesKeyboard handles keyboard hiding when scrolling/
+                // interacting with the list, without interfering with edit mode taps.
                 List {
                     ForEach(viewModel.ingredients, id: \.self) { ingredient in
                         HStack {
@@ -105,7 +109,6 @@ struct IngredientInputView: View {
                             Text(ingredient)
                             Spacer()
                         }
-                        // Ensure the full row width is tappable/swipeable
                         .contentShape(Rectangle())
                     }
                     .onDelete { indexSet in
@@ -115,6 +118,7 @@ struct IngredientInputView: View {
                     }
                 }
                 .listStyle(.plain)
+                .scrollDismissesKeyboard(.immediately)
                 .overlay {
                     if viewModel.ingredients.isEmpty {
                         ContentUnavailableView(
@@ -138,14 +142,6 @@ struct IngredientInputView: View {
                 .padding()
                 .accessibilityIdentifier("generateRecipesButton")
             }
-            .contentShape(Rectangle())
-            // Only dismiss keyboard on tap when NOT in edit mode,
-            // so the edit-mode delete (hyphen) button taps are not blocked.
-            .onTapGesture {
-                if editMode?.wrappedValue.isEditing != true {
-                    isTextFieldFocused = false
-                }
-            }
             .navigationTitle("Ingredients")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -156,6 +152,11 @@ struct IngredientInputView: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button("Favourites") { showFavourites = true }
                         .accessibilityIdentifier("favouritesButton")
+                }
+                // Keyboard dismiss button in the input accessory bar
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") { isTextFieldFocused = false }
+                        .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
             .onAppear { isTextFieldFocused = true }
