@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490B716D967845C69B8F5DEC /* FavouriteRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D6C55FB6CB46568CAD143C /* FavouriteRecipe.swift */; };
-		ED3EF6027FA14CDFB35AB9D9 /* FavouritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0C9604FC549FD8531F1D6 /* FavouritesService.swift */; };
-		A5D2F2DF15E9472FA4F3AFF6 /* FavouritesServiceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401D6866D0534347B78BDB54 /* FavouritesServiceKey.swift */; };
-		424A091747F1442BB8D116D6 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8974DD95D44C7B8FB15EA1 /* FavouritesView.swift */; };
 		01551730AFAD91DD239D5C6E /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC2A738C152FC4736FD88F /* Enums.swift */; };
+		01F9DA552FFD86EE00E13B21 /* FavouriteRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9DA542FFD86EE00E13B21 /* FavouriteRecipe.swift */; };
+		01F9DA582FFD871200E13B21 /* FavouritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9DA562FFD871200E13B21 /* FavouritesService.swift */; };
+		01F9DA592FFD871200E13B21 /* FavouritesServiceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9DA572FFD871200E13B21 /* FavouritesServiceKey.swift */; };
+		01F9DA5B2FFD873800E13B21 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F9DA5A2FFD873800E13B21 /* FavouritesView.swift */; };
 		066D7D126575A1CDDD136E1E /* IngredientNormalizerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329B9B46A8834F239ADE160A /* IngredientNormalizerService.swift */; };
 		096DF3CFB54B523B378C189A /* ChefNovaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCAC48566A919386738A8B2 /* ChefNovaApp.swift */; };
 		0F260AC47D330FAD806C7BCB /* RecipeEngineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92303128932FB4333E04BBC3 /* RecipeEngineService.swift */; };
@@ -70,12 +70,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01F9DA542FFD86EE00E13B21 /* FavouriteRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipe.swift; sourceTree = "<group>"; };
+		01F9DA562FFD871200E13B21 /* FavouritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesService.swift; sourceTree = "<group>"; };
+		01F9DA572FFD871200E13B21 /* FavouritesServiceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesServiceKey.swift; sourceTree = "<group>"; };
+		01F9DA5A2FFD873800E13B21 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		037EF1BA754A667094FA7D6C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		067EB91CB3C16F3AE20F19C7 /* MockRecipeEngineService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRecipeEngineService.swift; sourceTree = "<group>"; };
-		4F8974DD95D44C7B8FB15EA1 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
-		A9D6C55FB6CB46568CAD143C /* FavouriteRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRecipe.swift; sourceTree = "<group>"; };
-		81E0C9604FC549FD8531F1D6 /* FavouritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesService.swift; sourceTree = "<group>"; };
-		401D6866D0534347B78BDB54 /* FavouritesServiceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesServiceKey.swift; sourceTree = "<group>"; };
 		10EF688DA396BE2C341E9791 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		287BAE5CD7163FE341ECFA83 /* IngredientInputViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientInputViewModelTests.swift; sourceTree = "<group>"; };
 		28E71CACAC14B2B00C2C949C /* PreferenceSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceSelectionView.swift; sourceTree = "<group>"; };
@@ -188,9 +188,9 @@
 		85B835F32CBA215786674C30 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				01F9DA562FFD871200E13B21 /* FavouritesService.swift */,
+				01F9DA572FFD871200E13B21 /* FavouritesServiceKey.swift */,
 				BA91613E3C2DB74A70492227 /* BarcodeProductLookupService.swift */,
-				81E0C9604FC549FD8531F1D6 /* FavouritesService.swift */,
-				401D6866D0534347B78BDB54 /* FavouritesServiceKey.swift */,
 				329B9B46A8834F239ADE160A /* IngredientNormalizerService.swift */,
 				067EB91CB3C16F3AE20F19C7 /* MockRecipeEngineService.swift */,
 				7E7BD713D15F01060F8736AB /* PantryStaplesService.swift */,
@@ -223,8 +223,8 @@
 		B5542E6266D47C6F6E187359 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01F9DA5A2FFD873800E13B21 /* FavouritesView.swift */,
 				A6F4EA1A8F4442A0A69C9F0B /* BarcodeScannerView.swift */,
-				4F8974DD95D44C7B8FB15EA1 /* FavouritesView.swift */,
 				8FEA0BE2DE87E70B26C94DED /* IngredientInputView.swift */,
 				28E71CACAC14B2B00C2C949C /* PreferenceSelectionView.swift */,
 				69DD609DAAD5939C9CD674F4 /* RecipeDetailView.swift */,
@@ -262,9 +262,9 @@
 		FE9D1D9C7251A56B69B9B34B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				01F9DA542FFD86EE00E13B21 /* FavouriteRecipe.swift */,
 				57AC2A738C152FC4736FD88F /* Enums.swift */,
 				10EF688DA396BE2C341E9791 /* Errors.swift */,
-				A9D6C55FB6CB46568CAD143C /* FavouriteRecipe.swift */,
 				81B80B3B5CC5486C43103543 /* PreferenceProfile.swift */,
 				F6C8114E1F67261B336BF70C /* RecipeModels.swift */,
 			);
@@ -413,18 +413,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C1BE6D14E529A2872F29F99 /* BarcodeProductLookupService.swift in Sources */,
+				01F9DA552FFD86EE00E13B21 /* FavouriteRecipe.swift in Sources */,
+				01F9DA5B2FFD873800E13B21 /* FavouritesView.swift in Sources */,
 				2F3D39FBB82BD5C7F5AD4668 /* BarcodeScannerView.swift in Sources */,
 				096DF3CFB54B523B378C189A /* ChefNovaApp.swift in Sources */,
 				87A2639FC8FC5990B0ECA37B /* ContentView.swift in Sources */,
 				01551730AFAD91DD239D5C6E /* Enums.swift in Sources */,
 				0F8BA7F9A1523A55D85BF1D0 /* Errors.swift in Sources */,
-				490B716D967845C69B8F5DEC /* FavouriteRecipe.swift in Sources */,
-				ED3EF6027FA14CDFB35AB9D9 /* FavouritesService.swift in Sources */,
-				A5D2F2DF15E9472FA4F3AFF6 /* FavouritesServiceKey.swift in Sources */,
-				424A091747F1442BB8D116D6 /* FavouritesView.swift in Sources */,
 				4A303A4223CDEBDC1B695B6A /* IngredientInputView.swift in Sources */,
 				17AD9E4328998AC0429BA304 /* IngredientInputViewModel.swift in Sources */,
 				066D7D126575A1CDDD136E1E /* IngredientNormalizerService.swift in Sources */,
+				01F9DA582FFD871200E13B21 /* FavouritesService.swift in Sources */,
+				01F9DA592FFD871200E13B21 /* FavouritesServiceKey.swift in Sources */,
 				E7DFF029C18040750445374A /* MockRecipeEngineService.swift in Sources */,
 				7FE6002764CF39D83618A457 /* PantryStaplesService.swift in Sources */,
 				DFF3920F7E962740B8154E09 /* PreferencePersistenceService.swift in Sources */,

@@ -151,9 +151,10 @@ struct IngredientInputView: View {
             }
             .navigationTitle("Ingredients")
             .toolbar {
-                // Show Edit button when there are ingredients to delete
-                if !viewModel.ingredients.isEmpty {
-                    EditButton()
+                ToolbarItem(placement: .topBarLeading) {
+                    if !viewModel.ingredients.isEmpty {
+                        EditButton()
+                    }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {

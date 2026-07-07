@@ -15,7 +15,7 @@ struct ChefNovaApp: App {
 
     // MARK: - SwiftData container
 
-    /// The shared SwiftData container for `PreferenceProfile`.
+    /// The shared SwiftData container for `PreferenceProfile` and `FavouriteRecipe`.
     /// Created once with `try!` — a misconfigured schema is a programmer error
     /// that should surface immediately during development (MVP).
     let container: ModelContainer = {
