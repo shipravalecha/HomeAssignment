@@ -7,24 +7,16 @@
 
 import SwiftUI
 
-/// The first screen in the recipe generation flow.
-///
-/// Allows the user to type ingredient names, add them to a validated list,
-/// remove them via swipe-to-delete, and navigate to preference selection
-/// once the list is non-empty.
 struct IngredientInputView: View {
 
     @State private var viewModel: IngredientInputViewModel
     let makePreferenceViewModel: () -> PreferenceViewModel
-    /// Optional override for the `RecipeResultsViewModel` factory, forwarded
-    /// to `PreferenceSelectionView`. When `nil`, `PreferenceSelectionView`
-    /// uses its own default factory (production `RecipeEngineService`).
     let makeResultsViewModel: (() -> RecipeResultsViewModel)?
 
     @State private var navigateToPreferences = false
     @State private var showScanner = false
     @State private var showFavourites = false
-    /// Keeps the text field focused so the cursor returns after each add.
+    @Environment(\.editMode) private var editMode
     @FocusState private var isTextFieldFocused: Bool
 
     // MARK: - Init
@@ -49,11 +41,8 @@ struct IngredientInputView: View {
                         .autocorrectionDisabled()
                         .focused($isTextFieldFocused)
                         .accessibilityIdentifier("ingredientTextField")
-                        .onSubmit {
-                            addIngredient()
-                        }
+                        .onSubmit { addIngredient() }
 
-                    // Scan barcode button
                     Button {
                         isTextFieldFocused = false
                         showScanner = true
@@ -66,20 +55,17 @@ struct IngredientInputView: View {
                     .accessibilityLabel("Scan barcode")
                     .accessibilityIdentifier("scanBarcodeButton")
 
-                    Button("Add") {
-                        addIngredient()
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(viewModel.rawInput.trimmingCharacters(in: .whitespaces).isEmpty)
-                    .accessibilityIdentifier("addIngredientButton")
+                    Button("Add") { addIngredient() }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(viewModel.rawInput.trimmingCharacters(in: .whitespaces).isEmpty)
+                        .accessibilityIdentifier("addIngredientButton")
                 }
                 .padding()
 
                 // MARK: Barcode lookup status
                 if viewModel.isLookingUpBarcode {
                     HStack(spacing: 8) {
-                        ProgressView()
-                            .scaleEffect(0.8)
+                        ProgressView().scaleEffect(0.8)
                         Text("Looking up product…")
                             .font(.caption)
                             .foregroundStyle(.secondary)
@@ -109,7 +95,7 @@ struct IngredientInputView: View {
                         .accessibilityIdentifier("validationErrorText")
                 }
 
-                // MARK: Ingredient list with swipe-to-delete
+                // MARK: Ingredient list
                 List {
                     ForEach(viewModel.ingredients, id: \.self) { ingredient in
                         HStack {
@@ -117,7 +103,10 @@ struct IngredientInputView: View {
                                 .foregroundStyle(.green)
                                 .font(.caption)
                             Text(ingredient)
+                            Spacer()
                         }
+                        // Ensure the full row width is tappable/swipeable
+                        .contentShape(Rectangle())
                     }
                     .onDelete { indexSet in
                         for index in indexSet.sorted().reversed() {
@@ -150,7 +139,13 @@ struct IngredientInputView: View {
                 .accessibilityIdentifier("generateRecipesButton")
             }
             .contentShape(Rectangle())
-            .onTapGesture { isTextFieldFocused = false }
+            // Only dismiss keyboard on tap when NOT in edit mode,
+            // so the edit-mode delete (hyphen) button taps are not blocked.
+            .onTapGesture {
+                if editMode?.wrappedValue.isEditing != true {
+                    isTextFieldFocused = false
+                }
+            }
             .navigationTitle("Ingredients")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -159,15 +154,11 @@ struct IngredientInputView: View {
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("Favourites") {
-                        showFavourites = true
-                    }
-                    .accessibilityIdentifier("favouritesButton")
+                    Button("Favourites") { showFavourites = true }
+                        .accessibilityIdentifier("favouritesButton")
                 }
             }
-            .onAppear {
-                isTextFieldFocused = true
-            }
+            .onAppear { isTextFieldFocused = true }
             .sheet(isPresented: $showScanner) {
                 NavigationStack {
                     BarcodeScannerView { barcode in
@@ -175,6 +166,21 @@ struct IngredientInputView: View {
                     }
                     .navigationTitle("Scan Barcode")
                     .navigationBarTitleDisplayMode(.inline)
+                }
+            }
+            // MARK: Duplicate ingredient alert
+            .alert(
+                "Already in your list",
+                isPresented: Binding(
+                    get: { viewModel.duplicateIngredient != nil },
+                    set: { if !$0 { viewModel.cancelDuplicate() } }
+                )
+            ) {
+                Button("Add Again") { viewModel.forceAddDuplicate() }
+                Button("Cancel", role: .cancel) { viewModel.cancelDuplicate() }
+            } message: {
+                if let name = viewModel.duplicateIngredient {
+                    Text("\(name) is already in your list. Do you want to add it again?")
                 }
             }
             .navigationDestination(isPresented: $showFavourites) {
@@ -201,7 +207,6 @@ struct IngredientInputView: View {
 
     private func addIngredient() {
         viewModel.addIngredient()
-        // Re-focus the text field so the user can immediately type the next ingredient.
         isTextFieldFocused = true
     }
 

@@ -9,31 +9,22 @@
 import Foundation
 import Observation
 
-/// View model for the ingredient input screen.
-///
-/// Handles normalisation of raw user input via `IngredientNormalizerServiceProtocol`,
-/// maintains the validated ingredient list, and exposes validation errors for
-/// display in the UI.
 @MainActor
 @Observable
 final class IngredientInputViewModel {
 
     // MARK: - State
 
-    /// The list of validated, canonical ingredient names.
     var ingredients: [CanonicalIngredient] = []
-
-    /// The current text field content entered by the user.
     var rawInput: String = ""
-
-    /// The current validation error, if any. `nil` when there is no error.
     var validationError: IngredientValidationError?
-
-    /// `true` while a barcode lookup network request is in flight.
     var isLookingUpBarcode: Bool = false
-
-    /// Non-nil when a barcode was scanned but could not be resolved or normalised.
     var barcodeError: String?
+
+    /// Set to the duplicate canonical name when the user tries to add an
+    /// ingredient that is already in the list. The view observes this to
+    /// show a confirmation alert.
+    var duplicateIngredient: CanonicalIngredient? = nil
 
     // MARK: - Dependencies
 
@@ -42,11 +33,6 @@ final class IngredientInputViewModel {
 
     // MARK: - Init
 
-    /// Creates the view model with the given normaliser and barcode lookup services.
-    ///
-    /// - Parameters:
-    ///   - normalizer: Maps raw ingredient names to canonical forms.
-    ///   - barcodeLookup: Resolves scanned barcodes to product names.
     init(
         normalizer: IngredientNormalizerServiceProtocol,
         barcodeLookup: BarcodeProductLookupServiceProtocol = BarcodeProductLookupService()
@@ -58,33 +44,41 @@ final class IngredientInputViewModel {
     // MARK: - Methods
 
     /// Attempts to add the current `rawInput` as a validated ingredient.
-    ///
-    /// If the normaliser recognises the input, the canonical name is appended
-    /// to `ingredients`, `rawInput` is cleared, and `validationError` is set
-    /// to `nil`. If the input is unrecognised, `validationError` is set to
-    /// `.unrecognized(rawName:)` and the list is unchanged.
+    /// If the ingredient is already in the list, sets `duplicateIngredient`
+    /// so the view can prompt the user. If unrecognised, sets `validationError`.
     func addIngredient() {
-        if let canonical = normalizer.normalize(rawInput) {
+        guard let canonical = normalizer.normalize(rawInput) else {
+            validationError = .unrecognized(rawName: rawInput)
+            return
+        }
+        if ingredients.contains(canonical) {
+            // Signal the view to show a duplicate confirmation alert.
+            duplicateIngredient = canonical
+        } else {
             ingredients.append(canonical)
             rawInput = ""
             validationError = nil
-        } else {
-            validationError = .unrecognized(rawName: rawInput)
         }
     }
 
-    /// Removes the ingredient at the given index from `ingredients`.
-    ///
-    /// - Parameter index: The zero-based index of the ingredient to remove.
+    /// Force-adds the duplicate ingredient (called when user confirms the alert).
+    func forceAddDuplicate() {
+        guard let canonical = duplicateIngredient else { return }
+        ingredients.append(canonical)
+        rawInput = ""
+        validationError = nil
+        duplicateIngredient = nil
+    }
+
+    /// Dismisses the duplicate alert without adding.
+    func cancelDuplicate() {
+        duplicateIngredient = nil
+    }
+
     func removeIngredient(at index: Int) {
         ingredients.remove(at: index)
     }
 
-    /// Validates that the ingredient list is non-empty before recipe submission.
-    ///
-    /// - Returns: `true` if `ingredients` is non-empty; `false` otherwise.
-    ///   Sets `validationError` to `.emptyList` when returning `false`, or
-    ///   clears it when returning `true`.
     @discardableResult
     func validateForSubmission() -> Bool {
         if ingredients.isEmpty {
@@ -97,11 +91,6 @@ final class IngredientInputViewModel {
 
     // MARK: - Barcode scanning
 
-    /// Resolves a scanned barcode to a product name via `BarcodeProductLookupService`,
-    /// then attempts to normalise it. On success the canonical name is appended to
-    /// `ingredients`. On failure `barcodeError` is set with a user-facing message.
-    ///
-    /// - Parameter barcode: The raw barcode string from the scanner.
     func addIngredientFromBarcode(_ barcode: String) {
         barcodeError = nil
         isLookingUpBarcode = true
@@ -115,14 +104,11 @@ final class IngredientInputViewModel {
             }
 
             if let canonical = normalizer.normalize(productName) {
-                // Direct match — add immediately.
                 if !ingredients.contains(canonical) {
                     ingredients.append(canonical)
                 }
                 barcodeError = nil
             } else {
-                // Product found but name not in synonym dictionary.
-                // Pre-fill the text field so the user can review/correct it.
                 rawInput = productName
                 barcodeError = "Found '\(productName)' — not in our ingredient list. You can edit and add it manually."
             }
