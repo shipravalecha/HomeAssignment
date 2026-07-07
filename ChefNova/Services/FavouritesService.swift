@@ -9,17 +9,21 @@ import SwiftData
 // MARK: - Protocol
 
 protocol FavouritesServiceProtocol: Sendable {
-    /// Returns `true` if a recipe with the given ID is already saved.
     func isFavourite(recipeID: UUID) -> Bool
-
-    /// Saves the given recipe. Silently no-ops if already saved.
     func save(rankedRecipe: RankedRecipe) throws
-
-    /// Removes the recipe with the given ID. Silently no-ops if not found.
     func remove(recipeID: UUID) throws
-
-    /// Returns all saved recipes sorted by `savedAt` descending.
     func fetchAll() -> [FavouriteRecipe]
+}
+
+// MARK: - No-op stub (used as environment default / in previews)
+
+/// A no-op implementation used as the `EnvironmentKey` default value.
+/// The real `FavouritesService` is always injected from `AppRootView`.
+struct NoOpFavouritesService: FavouritesServiceProtocol {
+    func isFavourite(recipeID: UUID) -> Bool { false }
+    func save(rankedRecipe: RankedRecipe) throws {}
+    func remove(recipeID: UUID) throws {}
+    func fetchAll() -> [FavouriteRecipe] { [] }
 }
 
 // MARK: - Implementation
