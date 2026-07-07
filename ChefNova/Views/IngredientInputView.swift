@@ -23,6 +23,7 @@ struct IngredientInputView: View {
 
     @State private var navigateToPreferences = false
     @State private var showScanner = false
+    @State private var showFavourites = false
     /// Keeps the text field focused so the cursor returns after each add.
     @FocusState private var isTextFieldFocused: Bool
 
@@ -154,6 +155,16 @@ struct IngredientInputView: View {
                 if !viewModel.ingredients.isEmpty {
                     EditButton()
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showFavourites = true
+                    } label: {
+                        Image(systemName: "heart.fill")
+                            .foregroundStyle(.red)
+                    }
+                    .accessibilityLabel("View favourites")
+                    .accessibilityIdentifier("favouritesButton")
+                }
             }
             .onAppear {
                 isTextFieldFocused = true
@@ -166,6 +177,9 @@ struct IngredientInputView: View {
                     .navigationTitle("Scan Barcode")
                     .navigationBarTitleDisplayMode(.inline)
                 }
+            }
+            .navigationDestination(isPresented: $showFavourites) {
+                FavouritesView()
             }
             .navigationDestination(isPresented: $navigateToPreferences) {
                 if let makeResultsVM = makeResultsViewModel {

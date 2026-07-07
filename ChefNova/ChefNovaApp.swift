@@ -20,7 +20,7 @@ struct ChefNovaApp: App {
     /// that should surface immediately during development (MVP).
     let container: ModelContainer = {
         // swiftlint:disable:next force_try
-        try! ModelContainer(for: PreferenceProfile.self)
+        try! ModelContainer(for: PreferenceProfile.self, FavouriteRecipe.self)
     }()
 
     var body: some Scene {
@@ -63,6 +63,7 @@ struct AppRootView: View {
     var body: some View {
         // Build the persistence service here so it captures the live modelContext.
         let persistenceService = PreferencePersistenceService(context: modelContext)
+        let favouritesService = FavouritesService(context: modelContext)
 
         // When launched with "--uitesting", inject a mock RecipeEngineService
         // so UI tests receive deterministic, pre-canned recipe data without
@@ -88,6 +89,7 @@ struct AppRootView: View {
                     : nil
             )
         }
+        .environment(\.favouritesService, favouritesService)
     }
 
     // MARK: - Helpers

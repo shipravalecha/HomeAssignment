@@ -27,7 +27,7 @@ struct Recipe: Codable, Identifiable, Equatable {
 }
 
 /// A recipe decorated with its match score and gap ingredient information.
-struct RankedRecipe: Identifiable, Equatable {
+struct RankedRecipe: Identifiable, Equatable, Codable {
     let id: UUID
     let recipe: Recipe
     /// Match score in the range 0.0 – 1.0.
@@ -38,7 +38,7 @@ struct RankedRecipe: Identifiable, Equatable {
 }
 
 /// An ingredient the user does not have that is required to complete a partial match recipe.
-struct GapIngredient: Equatable {
+struct GapIngredient: Equatable, Codable {
     let name: CanonicalIngredient
     /// Lower value indicates a more commonly available ingredient.
     let commonalityRank: Int
