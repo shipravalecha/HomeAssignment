@@ -10,7 +10,7 @@ import SwiftUI
 
 /// The third screen in the recipe generation flow.
 ///
-/// Triggers recipe generation on appear, shows a progress indicator while
+/// Triggers recipe generation on appear, shows a shimmer skeleton while
 /// loading, displays ranked recipe cards on success, and shows an error
 /// banner with retry on failure.
 struct RecipeResultsView: View {
@@ -44,17 +44,10 @@ struct RecipeResultsView: View {
         Group {
             switch viewModel.state {
             case .idle:
-                // Briefly shown before .task fires; show nothing meaningful.
                 Color.clear
 
             case .loading:
-                VStack(spacing: 16) {
-                    ProgressView()
-                        .scaleEffect(1.5)
-                    Text("Finding recipes…")
-                        .foregroundStyle(.secondary)
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                loadingSkeletonView
 
             case .results(let rankedRecipes):
                 resultsList(rankedRecipes)
@@ -65,8 +58,6 @@ struct RecipeResultsView: View {
         }
         .navigationTitle("Recipes")
         .task {
-            // Only generate if we haven't already — prevents re-triggering
-            // when navigating back from RecipeDetailView.
             guard case .idle = viewModel.state else { return }
             await viewModel.generateRecipes(
                 ingredients: ingredients,
@@ -77,12 +68,11 @@ struct RecipeResultsView: View {
         }
     }
 
-    // MARK: - Results list
+    // MARK: - Shimmer skeleton
 
-    @ViewBuilder
-    private func resultsList(_ rankedRecipes: [RankedRecipe]) -> some View {
+    private var loadingSkeletonView: some View {
         List {
-            // Pantry staples notice
+            // Hint label matching the real results list
             Section {
                 Label(
                     "Common pantry staples (salt, oil, spices, etc.) are assumed available.",
@@ -92,7 +82,31 @@ struct RecipeResultsView: View {
                 .foregroundStyle(.secondary)
             }
 
-            // Recipe cards
+            // Three placeholder recipe card skeletons
+            ForEach(0..<3, id: \.self) { index in
+                SkeletonRecipeCard()
+                    // Stagger the animation start so cards don't all pulse in sync
+                    .id(index)
+            }
+        }
+        .listStyle(.insetGrouped)
+        .allowsHitTesting(false) // Prevent tapping skeleton cards
+    }
+
+    // MARK: - Results list
+
+    @ViewBuilder
+    private func resultsList(_ rankedRecipes: [RankedRecipe]) -> some View {
+        List {
+            Section {
+                Label(
+                    "Common pantry staples (salt, oil, spices, etc.) are assumed available.",
+                    systemImage: "info.circle"
+                )
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            }
+
             ForEach(rankedRecipes) { ranked in
                 NavigationLink(destination: RecipeDetailView(viewModel: RecipeDetailViewModel(rankedRecipe: ranked))) {
                     recipeCard(ranked)
@@ -107,7 +121,6 @@ struct RecipeResultsView: View {
     @ViewBuilder
     private func recipeCard(_ ranked: RankedRecipe) -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            // Title and match score
             HStack {
                 Text(ranked.recipe.title)
                     .font(.headline)
@@ -120,7 +133,6 @@ struct RecipeResultsView: View {
                     .accessibilityIdentifier("recipeCardMatchScore")
             }
 
-            // Metadata row
             HStack(spacing: 12) {
                 Label("\(ranked.recipe.prepTimeMinutes + ranked.recipe.cookTimeMinutes) min", systemImage: "clock")
                     .accessibilityIdentifier("recipeCardTime")
@@ -131,7 +143,6 @@ struct RecipeResultsView: View {
             .font(.caption)
             .foregroundStyle(.secondary)
 
-            // Gap ingredients for partial matches
             if ranked.isPartialMatch && !ranked.gapIngredients.isEmpty {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Missing ingredients:")
@@ -164,7 +175,6 @@ struct RecipeResultsView: View {
                 .accessibilityIdentifier("errorBannerText")
 
             if case .noResultsFound = error {
-                // No retry for no-results — just show the message.
                 EmptyView()
             } else {
                 Button("Retry") {
@@ -192,5 +202,88 @@ struct RecipeResultsView: View {
     private func matchScoreText(_ score: Double) -> String {
         let percentage = Int((score * 100).rounded())
         return "\(percentage)%"
+    }
+}
+
+// MARK: - Shimmer modifier
+
+/// Applies a left-to-right shimmer highlight effect to any view.
+private struct ShimmerModifier: ViewModifier {
+    @State private var phase: CGFloat = -1
+
+    func body(content: Content) -> some View {
+        content
+            .overlay(
+                GeometryReader { geo in
+                    LinearGradient(
+                        stops: [
+                            .init(color: .clear, location: 0),
+                            .init(color: .white.opacity(0.45), location: 0.4),
+                            .init(color: .white.opacity(0.45), location: 0.6),
+                            .init(color: .clear, location: 1)
+                        ],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                    .frame(width: geo.size.width * 2)
+                    .offset(x: geo.size.width * phase)
+                }
+                .clipped()
+            )
+            .onAppear {
+                withAnimation(
+                    .linear(duration: 1.4)
+                    .repeatForever(autoreverses: false)
+                ) {
+                    phase = 1.5
+                }
+            }
+    }
+}
+
+private extension View {
+    func shimmer() -> some View {
+        modifier(ShimmerModifier())
+    }
+}
+
+// MARK: - Skeleton recipe card
+
+/// A placeholder card that mimics the shape of a real recipe card while loading.
+private struct SkeletonRecipeCard: View {
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            // Title bar placeholder
+            HStack {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color(.systemGray5))
+                    .frame(width: 180, height: 16)
+                    .shimmer()
+                Spacer()
+                // Match score pill placeholder
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color(.systemGray5))
+                    .frame(width: 40, height: 16)
+                    .shimmer()
+            }
+
+            // Metadata row placeholder
+            HStack(spacing: 12) {
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color(.systemGray5))
+                    .frame(width: 60, height: 12)
+                    .shimmer()
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color(.systemGray5))
+                    .frame(width: 60, height: 12)
+                    .shimmer()
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color(.systemGray5))
+                    .frame(width: 80, height: 12)
+                    .shimmer()
+            }
+        }
+        .padding(.vertical, 8)
     }
 }
