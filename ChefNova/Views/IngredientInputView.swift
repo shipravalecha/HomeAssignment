@@ -150,9 +150,7 @@ struct IngredientInputView: View {
                 .accessibilityIdentifier("generateRecipesButton")
             }
             .contentShape(Rectangle())
-            .onTapGesture {
-                isTextFieldFocused = false
-            }
+            .onTapGesture { isTextFieldFocused = false }
             .navigationTitle("Ingredients")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
