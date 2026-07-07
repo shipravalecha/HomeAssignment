@@ -10,7 +10,7 @@ import SwiftData
 
 private struct FavouritesServiceKey: EnvironmentKey {
     /// Fallback used in previews and tests — operates on an in-memory container.
-    static let defaultValue: FavouritesServiceProtocol = {
+    @MainActor static let defaultValue: FavouritesServiceProtocol = {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         // swiftlint:disable:next force_try
         let container = try! ModelContainer(for: FavouriteRecipe.self, configurations: config)
@@ -19,7 +19,7 @@ private struct FavouritesServiceKey: EnvironmentKey {
 }
 
 extension EnvironmentValues {
-    var favouritesService: FavouritesServiceProtocol {
+    var favouritesService: any FavouritesServiceProtocol {
         get { self[FavouritesServiceKey.self] }
         set { self[FavouritesServiceKey.self] = newValue }
     }

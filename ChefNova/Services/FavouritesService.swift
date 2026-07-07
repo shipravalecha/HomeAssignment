@@ -8,7 +8,7 @@ import SwiftData
 
 // MARK: - Protocol
 
-protocol FavouritesServiceProtocol {
+protocol FavouritesServiceProtocol: Sendable {
     /// Returns `true` if a recipe with the given ID is already saved.
     func isFavourite(recipeID: UUID) -> Bool
 
@@ -24,7 +24,7 @@ protocol FavouritesServiceProtocol {
 
 // MARK: - Implementation
 
-final class FavouritesService: FavouritesServiceProtocol {
+final class FavouritesService: FavouritesServiceProtocol, @unchecked Sendable {
 
     private let context: ModelContext
 
