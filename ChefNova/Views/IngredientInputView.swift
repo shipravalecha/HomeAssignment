@@ -149,6 +149,10 @@ struct IngredientInputView: View {
                 .padding()
                 .accessibilityIdentifier("generateRecipesButton")
             }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                isTextFieldFocused = false
+            }
             .navigationTitle("Ingredients")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -157,13 +161,9 @@ struct IngredientInputView: View {
                     }
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button {
+                    Button("Favourites") {
                         showFavourites = true
-                    } label: {
-                        Image(systemName: "heart.fill")
-                            .foregroundStyle(.red)
                     }
-                    .accessibilityLabel("View favourites")
                     .accessibilityIdentifier("favouritesButton")
                 }
             }
